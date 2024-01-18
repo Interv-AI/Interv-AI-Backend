@@ -14,13 +14,13 @@ Before you begin, ensure you have the following installed on your machine:
 Clone the repository to your local machine:
 
 ```
-git clone https://github.com/c99rahul/ts-node-express.git
+git clone https://github.com/Interv-AI/Interv-AI-Backend.git
 ```
 
 Navigate to the project directory:
 
 ```
-cd ts-node-express/
+cd Interv-AI-Backend/
 ```
 
 Install the project dependencies including TypeScript and Nodemon:
@@ -52,12 +52,7 @@ The project structure is organized as follows:
 
 - `src`: Contains TypeScript source files
     - `index.ts`: Configures and starts the Express application
-- `dist`: Output directory created during build for compiled TypeScript files
 - `package.json`: Project configuration and dependencies
 - `tsconfig.json`: TypeScript configuration
 
-You can customize the project configuration i nthe `tsconfig.json` file and adjust the server settings in the `src/index.ts` file.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
