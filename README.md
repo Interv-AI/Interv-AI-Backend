@@ -1,4 +1,4 @@
-# TypeScript x Express x Node.js
+# Interv-AI Backend
 
 This repository contains a basic TypeScript Express application that utilizes Node.js for server-side functionality. It is configured with Nodemon for automatic server restarts during development and uses ts-node for TypeScript execution.
 
