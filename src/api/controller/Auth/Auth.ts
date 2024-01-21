@@ -21,22 +21,17 @@ export const login = async (req: Request, res: Response) => {
         }
 
         const authService = new AuthService();
-
-        // get userby email
         const user = await authService.getUserByEmail(email);
         if (user === null) {
             res.status(404).send({ code: "user/not-found", message: "User not found" });
             return;
         }
-        // validate the password
         const isPasswordMatch = await checkPasswordValidity(password, user.passwordHash);
 
         if (!isPasswordMatch) {
             res.status(401).send({ code: "user/invalid-credentials", message: "Invalid Credentials" });
             return;
         }
-
-        //generate jwt
         const tokenPayload = {
             email: user.email
         }
