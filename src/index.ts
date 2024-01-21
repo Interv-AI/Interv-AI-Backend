@@ -1,5 +1,3 @@
-// src/index.ts
-import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import { logError, logInfo } from "./logger/logger";
 import app from "./app";
