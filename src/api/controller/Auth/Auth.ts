@@ -49,11 +49,17 @@ export const login = async (req: Request, res: Response) => {
 
 export const RegisterUser = async (req: Request, res: Response) => {
     const authService = new AuthService();
+    const currentDate = new Date();
+
     try {
         const data = req.body || {};
         if (typeof data.email !== "string" || typeof data.password !== "string" || data.email === "" || data.name === "") {
             res.status(400).send({ code: "auth/invalid-credentials", message: "Invalid credentials" });
             return;
+        }
+
+        const tokenPayload = {
+            email: data.email
         }
 
         const passwordHash = await generatePasswordHash(data.password);
@@ -62,9 +68,11 @@ export const RegisterUser = async (req: Request, res: Response) => {
             passwordHash: passwordHash,
             name: data.name
         }
+        const tokenExpiryTime = calculateTimeDiffFromNowToDayEnd(currentDate);
+        let token = await generateToken(tokenPayload, tokenExpiryTime)
 
         const createdUser = await authService.createUser(authData);
-        res.send(createdUser)
+        res.send({ createdUser, token })
 
     } catch (error) {
         logError("An error occured in Employee Register API", error);
