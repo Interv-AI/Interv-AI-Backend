@@ -16,7 +16,6 @@ class AuthService {
 
     async updatePasswordByEmail(email: string, password: string) {
         let updated = await userModel.updateOne({ email: email || "" }, { passwordHash: password });
-
         return updated.matchedCount > 0;
     }
 }
