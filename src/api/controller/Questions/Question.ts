@@ -54,7 +54,7 @@ export const checkAnswer = async (req: Request, res: Response) => {
 
         // const quesss = data[0]?.question;
 
-        // const targetAnswer = data[0]?.target_answer;
+        const targetAnswer = data[0]?.target_answer;
         // const payload = JSON.stringify({ actual_answer: userAnswer, targeted_answer: targetAnswer });
         // const ress: any = fetch("http://localhost:5000/calculate_similarity", {
         //     method: "POST",
