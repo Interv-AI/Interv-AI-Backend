@@ -18,4 +18,7 @@ app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/interview", QuestionRouter);
 
+app.options('*', cors(corsOptions));
+
+
 export default app;
