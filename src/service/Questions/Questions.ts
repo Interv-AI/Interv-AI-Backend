@@ -14,6 +14,10 @@ class QuestionService {
         const res: any = await questionModel.find({ question_id: { $eq: question_id } });
         return res;
     }
+    async getAllQuestions() {
+        const res: IQuestion[] = await questionModel.find();
+        return res;
+    }
 }
 
 export default QuestionService;

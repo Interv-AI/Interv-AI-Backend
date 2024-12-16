@@ -30,6 +30,19 @@ export const getQuestion = async (req: Request, res: Response) => {
     }
 }
 
+export const getALlQuestions = async (req: Request, res: Response) => {
+    try {
+        const questionService = new QuestionService();
+        const data: IQuestion[] = await questionService.getAllQuestions();
+
+        res.send({ status: "Success", data });
+
+    } catch (error: any) {
+        logError("An error occured in Question API", error);
+        res.status(500).send({ code: "server/internal-error", message: "An internal server error has occured" });
+    }
+}
+
 export const checkAnswer = async (req: Request, res: Response) => {
     try {
         const userAnswer = req.body.userAnswer;
